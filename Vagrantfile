@@ -1,8 +1,11 @@
-VAGRANTFILE_API_VERSION = '2'
-
-Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = 'ubuntu/trusty64'
+Vagrant.configure("2") do |config|
+  config.vm.box = "EscamboAppBackupVagrant.box"
   config.ssh.insert_key = false # linha obrigatória para Windows
+   # Configure VM Ram usage
+   config.vm.provider "virtualbox" do |v|
+        v.memory = 1024
+        v.cpus = 2
+    end
 
   config.vm.network :forwarded_port, guest: 3000, host: 3000    # rails
   config.vm.network :forwarded_port, guest: 9292, host: 9292    # rack
