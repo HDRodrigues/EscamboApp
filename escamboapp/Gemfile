@@ -31,14 +31,40 @@ gem "paperclip", "~> 6.0.0"
 #Rails gem of the Bootstrap based admin theme SB Admin 2. 
 gem 'bootstrap_sb_admin_base_v2'
 
+# jQuery UI for the Rails asset pipeline
+gem 'jquery-ui-rails'
+
+#Markdown
+gem 'redcarpet'
+
+#FriendlyId is the “Swiss Army bulldozer” of slugging and permalink plugins for ActiveRecord. 
+gem 'friendly_id', '~> 5.2.1'
+
+#Wiselinks
+gem 'wiselinks'
+
+#A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Ruby webapps
+gem 'kaminari'
+
+#Kaminari i18n
+gem 'kaminari-i18n'
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap', '3.3.7'
 
-  #A simple, versatile notification library
   gem 'rails-assets-notifyjs', '0.4.2'
 
+  #Bootstrap notify
+  gem 'rails-assets-bootstrap.growl'
+
+  #Animate css
+  gem 'rails-assets-animate-css'
   #A better javascript box  
   gem 'rails-assets-bootbox'
+  #Bootstrap markdown
+  gem 'rails-assets-bootstrap-markdown'
+  #Marked to preview the markdown
+  gem 'rails-assets-marked'
 
 end
 
@@ -89,6 +115,10 @@ group :development do
 
   #A library for generating fake data such as names, addresses, and phone numbers.
   gem 'faker'
+
+  #Markdown Lorem Ipsum generator
+  gem 'doctor_ipsum'
+  
   #Envio de email
   gem 'mailcatcher'
 

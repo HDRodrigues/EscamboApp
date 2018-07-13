@@ -11,8 +11,7 @@
 	 <title>BackOffice - Escamboapp</title>
 	  <%= stylesheet_link_tag    'application', media: 'all' %>
 	  <%= stylesheet_link_tag    'backoffice', media: 'all' %>
-	  <%= javascript_include_tag 'application' %>
-	  <%= javascript_include_tag 'backoffice' %>
+	 
 	  <%= csrf_meta_tags %>
 </head>
 
@@ -29,15 +28,12 @@
 		    </div>
 		</div>
 	</div>
-	<% if notice %>
-    <div class="alert alert-success alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            
-			<script>$.notify("<%= notice %>","success")</script>
-    </div>
-	<% end %>
-	<% if alert %>
-			<script>$.notify("<%= alert %>","error")</script>
-	<% end %>
+
+	<%= javascript_include_tag 'application' %>
+	<%= javascript_include_tag 'backoffice' %>
+	
+	<%= render partial: 'layouts/shared/notifications'  %>
+
+	
 </body>
 </html>

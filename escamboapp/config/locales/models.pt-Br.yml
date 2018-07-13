@@ -50,6 +50,8 @@
         title: Título
         description: Descrição
         description_md: Descrição/Markdown
+        description_short: Breve Descrição/Markdown
+        description_md: Descrição/Markdown
         description_short: Breve Descrição
         member_id: Código do usuário
         category_id: Código da categoria

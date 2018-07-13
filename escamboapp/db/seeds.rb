@@ -28,16 +28,16 @@ puts "CATEGORIAS cadastradas com sucesso!"
 
 ###########################
 
-# puts "Cadastrando o ADMINISTRADOR PADRÃO..."
+puts "Cadastrando o ADMINISTRADOR PADRÃO..."
 
-# 	Admin.create!(
-# 		email: "admin@admin.com",
-# 		name: "Administrador", 
-# 		password: "123456", 
-# 		password_confirmation: "123456",
-# 		role: 0 )
+	Admin.create!(
+		email: "admin@admin.com",
+		name: "Administrador", 
+		password: "123456", 
+		password_confirmation: "123456",
+		role: 0 )
 
-# puts "ADMINISTRADOR PADRÃO cadastrado com sucesso!"
+puts "ADMINISTRADOR PADRÃO cadastrado com sucesso!"
 
 
 puts "Cadastrando o MEMBRO PADRÃO..."
