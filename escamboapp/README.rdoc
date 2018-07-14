@@ -10,7 +10,7 @@ sudo apt-get install imagemagick
 
 ```
 
-*Graphviz (https://www.graphviz.org)
+*Graphviz (https://www.graphviz.org) - Apenas para Ambiente de Desenvolvimento
 
 ```
 sudo apt-get upddate
