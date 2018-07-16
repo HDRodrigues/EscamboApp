@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     get 'search', to: 'search#ads'
     resources :ad_detail, only: [:show]
     resources :categories, only: [:show]
+    resources :comments, only: [:create]
+
 
   end
 
