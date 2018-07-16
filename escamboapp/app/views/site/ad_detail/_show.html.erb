@@ -10,9 +10,15 @@
 </div>
 
 <div class="well">
-	<% member_signed_in? %>
+	<% if member_signed_in? %>
 		<div class="text-right">
 				<button type="button" class="btn btn-success" data-toggle="modal" data-target="#commentModal">
+				  Deixe um comentario
+				</button>
+		</div>
+	<% else %>
+		<div class="text-right">
+				<button type="button" class="btn btn-success" disabled="disabled" data-toggle="modal" data-target="#commentModal">
 				  Deixe um comentario
 				</button>
 		</div>
@@ -23,4 +29,3 @@
 	<%= render partial: 'site/ad_detail/comments'%>
 	<%= render partial: 'site/ad_detail/comment_modal'%>
 </div>
-
