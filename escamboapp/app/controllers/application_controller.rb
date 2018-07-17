@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  before_filter :store_current_location, :unless => :devise_controller?
+
   # Pundit
   include Pundit
 
@@ -24,9 +26,16 @@ class ApplicationController < ActionController::Base
   	end
   end
 
-   def user_not_authorized
-    flash[:alert] = t('messages.punditError')
-    redirect_to(request.referrer || root_path)
+  def user_not_authorized
+  flash[:alert] = t('messages.punditError')
+  redirect_to(request.referrer || root_path)
   end
 
+
+  private
+
+   # Redirecionar o usuario para a ultima tela que ele estava antes de logar
+  def store_current_location
+    store_location_for(:member, request.url)
+  end
 end

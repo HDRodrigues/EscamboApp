@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     end
     get 'home', to: 'home#index'
     get 'search', to: 'search#ads'
-    resources :ad_detail, only: [:show]
+    resources :ad_detail, only: [:index,:show]
     resources :categories, only: [:show]
     resources :comments, only: [:create]
 
