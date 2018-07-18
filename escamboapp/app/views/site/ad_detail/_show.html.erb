@@ -4,8 +4,13 @@
     <h3 class="card-title"><%= @ad.title %></h3>
     <h4><%= humanized_money_with_symbol @ad.price %></h4>
     <p class="card-text"><%= @ad.description.html_safe %></p>
-    <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
-    4.0 stars
+  </div>
+
+  <div class="ratings">
+  	<p class="pull-right"> 3 reviews</p>
+  	<p>
+  		<%= rating_for @ad, 'quality', disable_after_rate: true %>
+  	</p>
   </div>
 </div>
 

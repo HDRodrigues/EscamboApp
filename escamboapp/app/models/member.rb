@@ -1,5 +1,10 @@
 class Member < ActiveRecord::Base
-	has_many :ads
+
+	# Configuracao para quem vai avaliar o anuncio
+  ratyrate_rater
+
+	#Associations
+  has_many :ads
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
