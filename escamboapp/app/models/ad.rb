@@ -43,7 +43,7 @@ class Ad < ActiveRecord::Base
 
   scope :last_six, -> {limit(QTT_PER_PAGE).order(created_at: :desc)}
   scope :to_the, -> (current_member) { where(member: current_member) }
-  scope :get_all_ads_by_category, -> (category_id) {where(category_id: category_id)}
+  scope :get_all_ads_by_category, -> (category_id,page) {where(category_id: category_id).page(page).per(QTT_PER_PAGE)}
 
 
   private

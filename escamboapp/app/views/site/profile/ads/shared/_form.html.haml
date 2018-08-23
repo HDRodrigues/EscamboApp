@@ -1,0 +1,46 @@
+=content_for :javascripts do
+	=javascript_include_tag 'site/profile/ads'
+- if @ad.errors.any?
+	.alert.alert-danger.alert-dismissable
+		%button.close{:type => 'button',"data-dismiss" =>"alert","aria-hidden"=> "true"}x
+		%ul
+			- @ad.erros.full_messages.each do |message|
+				%li= @message
+= form_for [:site, :profile, @ad], html: {multipart:true} do |f| 
+	.row
+		.col-xs-6.col-sm-6.col-md-6.col-lg-6
+			.form-group 
+				= f.label :title
+				= f.text_field :title, class: "form-control", placeholder: "Título"
+	.row
+		.col-xs-6.col-sm-6.col-md-6.col-lg-6
+			.form-group 
+				= f.label :category
+				= f.collection_select(:category_id, Category.all,
+				:id, :description,{}, {:class => 'form-control'})
+	.row
+		.col-xs-6.col-sm-6.col-md-6.col-lg-6
+			.form-group 
+				= f.label :price
+				.input-group
+					.input-group-addon 
+						= @ad.price.currency.symbol
+					= f.text_field :price, class: "form-control"
+	.row
+		.col-xs-6.col-sm-6.col-md-6.col-lg-6
+			.form-group 
+				= f.label :picture 
+				%br/
+				- if @ad.picture.present?
+					= image_tag @ad.picture.url(:thumb), class: "img-thumbnail"
+				= f.file_field :picture, class: "btn"	
+	.row
+		.col-xs-6.col-sm-6.col-md-6.col-lg-6
+			.form-group 
+				= f.label :description_short
+				= f.text_area :description_short, class: "form-control", rows:5
+	.row
+		.col-xs-6.col-sm-6.col-md-6.col-lg-6
+			.form-group 
+				= f.label :description_md
+				= f.text_area :description_md, class: "form-control", rows:10, "data" => {provide: 'markdown'}

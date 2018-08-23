@@ -49,6 +49,9 @@ gem 'kaminari'
 #Kaminari i18n
 gem 'kaminari-i18n'
 
+#HTML Abstraction Markup Language
+gem "haml"
+
 #A Ruby Gem that wraps the functionality of jQuery Raty library, and provides optional IMDB style rating.
 gem 'ratyrate'
 

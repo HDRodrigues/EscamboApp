@@ -1,0 +1,15 @@
+
+- @ads.each do |ad|
+  .col-sm-4.col-lg-4.col-md-4
+    .ratings
+      %p= rating_for ad, 'quality', disable_after_rate: true
+    .thumbnail
+      = image_tag ad.picture.url(:medium)
+      .caption
+        %h4{ :class=>"pull-right" }= humanized_money_with_symbol ad.price
+        %p= link_to truncate(ad.title, length:20),site_ad_detail_path(ad), 
+        remote: true, data: {push: :partial}
+        %p= (truncate(ad.description_short, length:100))
+.row
+  .text-center 
+    %p= paginate @ads

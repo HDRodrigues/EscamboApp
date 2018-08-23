@@ -1,0 +1,22 @@
+%h1 Listando Anúncios
+%table.table.table-hover
+  %thead
+    %tr
+      %th 
+      %th Imagem
+      %th Title
+      %th Categoria
+      %th Preço
+  %tbody
+    -@ads.each do |ad|
+      %tr
+        %th= ad.id
+        %td= image_tag ad.picture(:thumb)
+        %td= ad.title
+        %td= ad.category.description
+        %td= humanized_money_with_symbol ad.price
+        %td
+          =link_to edit_site_profile_ad_path(ad.id), class: "btn-primary btn-sm" do
+            %span
+              .glyphicon.glyphicon-pencil
+    
