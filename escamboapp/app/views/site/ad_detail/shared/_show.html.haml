@@ -1,0 +1,30 @@
+.card.mt-4
+	= image_tag @ad.picture.url(:large)
+	.card-body
+		%h3.card-title
+			= @ad.title
+		%h4
+			= humanized_money_with_symbol @ad.price
+		%p.card-text
+			= @ad.description.html_safe
+
+.well.well-sm
+	.ratings
+		%p.pull-right 
+			= @ad.comments.count	
+			comentários 
+		= rating_for @ad, 'quality', disable_after_rate: true
+
+.well
+	-if member_signed_in?
+		.text-right
+			%button.btn.btn-success{:type => 'button', "data-toggle" =>"modal", "data-target" => "#commentModal"}
+				Deixe um comentário
+	-else
+		.text-right
+			=link_to "Efetue o login para fazer comentário", new_member_session_path, class: "btn btn-success"
+	%h1= @ad.id
+	= render partial: 'site/ad_detail/shared/comments' 
+	= render partial: 'site/ad_detail/shared/comment_modal'
+
+

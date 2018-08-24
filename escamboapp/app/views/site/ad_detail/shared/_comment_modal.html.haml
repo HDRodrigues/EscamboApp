@@ -1,0 +1,17 @@
+= form_tag site_comments_path do
+	.modal.fade#commentModal{"tabindex" => "-1", "role" => "dialog", 
+	"arial-labelledby" => "commentLabelModal"}
+		.modal-dialog{"role"=> "document"}
+			.modal-content
+				.modal-header
+					%button.close{"data-dismiss" => "modal", "aria-label" => "Close"}
+						%span{'aria-hidden'=>"true"} &times;
+					%h4.modal-title#commentLabelModal Deixe seu comentário
+				.modal-body
+					.form-group
+						%label Comentário
+						= text_area :comment, :body, class: "form-control", rows: 5
+						= hidden_field :comment, :ad_id, value: @ad.id
+				.modal-footer
+					%button.btn.btn-default{'data-dismiss' => "modal"} Fechar
+					= submit_tag "Enviar", class: "btn btn-primary"

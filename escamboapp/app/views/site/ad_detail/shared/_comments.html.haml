@@ -1,0 +1,16 @@
+- @ad.comments.each do |comment|
+	.row
+		.col-xs-12.col-sm-12.col-md-12.col-lg-12
+			%span.glyphicon.glyphicon-star
+			%span.glyphicon.glyphicon-star
+			%span.glyphicon.glyphicon-star
+			%span.glyphicon.glyphicon-star
+			%span.glyphicon.glyphicon-star-empty
+			= comment.member.email
+			%span.pull-rigth
+				= time_ago_in_words(comment.created_at)
+			%p= comment.body
+			-if current_member && current_member.id == comment.member.id
+				=rating_for_user @ad, current_member, 'quality'
+	%hr/
+
