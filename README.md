@@ -2,7 +2,7 @@
 
 # Ruby on Rails - EscamboApp
 
-Advertisement System that you can buy/sell itens.
+Advertisement System that you can buy/sell items.
 
 ## Dependências do projeto
 
